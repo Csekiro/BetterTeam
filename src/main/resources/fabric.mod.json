@@ -11,13 +11,13 @@
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
-      "Csekiro.client.BetterteamDataGenerator"
+      "Csekiro.client.BetterTeamDataGenerator"
     ],
     "client": [
-      "Csekiro.client.BetterteamClient"
+      "Csekiro.client.BetterTeamClient"
     ],
     "main": [
-      "Csekiro.Betterteam"
+      "Csekiro.BetterTeam"
     ]
   },
   "mixins": [
