@@ -4,7 +4,7 @@
   "version": "${version}",
   "name": "BetterTeam",
   "description": "",
-  "authors": [],
+  "authors": ["Csekiro","ChatGPT"],
   "contact": {},
   "license": "MIT",
   "icon": "assets/betterteam/icon.png",
