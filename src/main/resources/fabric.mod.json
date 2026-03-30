@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "betterteam",
+  "version": "${version}",
+  "name": "BetterTeam",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/betterteam/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "Csekiro.client.BetterteamDataGenerator"
+    ],
+    "client": [
+      "Csekiro.client.BetterteamClient"
+    ],
+    "main": [
+      "Csekiro.Betterteam"
+    ]
+  },
+  "mixins": [
+    "betterteam.mixins.json",
+    {
+      "config": "betterteam.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
