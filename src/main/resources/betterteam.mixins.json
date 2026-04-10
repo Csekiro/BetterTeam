@@ -8,6 +8,7 @@
     "EvokerFangsEntityMixin",
     "LivingEntityMixin",
     "LightningEntityMixin",
+    "ProjectileUtilMixin",
     "ProjectileEntityMixin",
     "PersistentProjectileEntityMixin",
     "ExplosiveProjectileEntityMixin",

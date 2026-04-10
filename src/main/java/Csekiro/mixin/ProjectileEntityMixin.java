@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ProjectileEntity.class)
 public abstract class ProjectileEntityMixin {
-    @Inject(method = "canHit", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "canHit(Lnet/minecraft/entity/Entity;)Z", at = @At("HEAD"), cancellable = true)
     private void betterteam$ignoreTeammates(Entity entity, CallbackInfoReturnable<Boolean> cir) {
         if (TeamHooks.shouldProjectileIgnore((ProjectileEntity) (Object) this, entity)) {
             cir.setReturnValue(false);

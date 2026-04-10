@@ -3,6 +3,7 @@ package Csekiro.util;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.scoreboard.Team;
 import net.minecraft.server.world.ServerWorld;
@@ -30,22 +31,12 @@ public final class TeamHooks {
         return sameTeam(victim, attacker);
     }
 
-    public static boolean shouldProjectileIgnore(Entity projectile, Entity target) {
+    public static boolean shouldProjectileIgnore(ProjectileEntity projectile, Entity target) {
         if (projectile == null || target == null) {
             return false;
         }
 
-        Entity owner = getProjectileOwner(projectile);
-        return sameTeam(owner, target);
-    }
-
-    @Nullable
-    private static Entity getProjectileOwner(Entity projectile) {
-        try {
-            return (Entity) projectile.getClass().getMethod("getOwner").invoke(projectile);
-        } catch (Exception ignored) {
-            return null;
-        }
+        return sameTeam(projectile.getOwner(), target);
     }
 
     public static void syncLightningToChannelerTeam(LightningEntity lightning) {
@@ -86,9 +77,11 @@ public final class TeamHooks {
         if (a == null || b == null) {
             return false;
         }
-        if (a == b) {
-            return true;
+
+        if (a.getScoreboardTeam() == null || b.getScoreboardTeam() == null) {
+            return false;
         }
+
         return a.isTeammate(b);
     }
 }
